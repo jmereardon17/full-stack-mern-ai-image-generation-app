@@ -1,8 +1,7 @@
-# React + Vite
+# Full Stack MERN AI Image Generation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Using Cloudinary for cloud-based image storage to allow uses to generate images from text input combined with Open AI's DALL-E for deep learning. Built with MongoDB, React, and Express.
 
-Currently, two official plugins are available:
+Built with: JavaScript, React, React Router, Express, MongoDB, Tailwind CSS, OpenAI's DALL-E, Cloudinary AI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Note: The project's API is no longer free, so fully utilizing the project requires payment to Open AI.
