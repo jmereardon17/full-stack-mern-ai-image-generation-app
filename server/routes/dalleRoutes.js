@@ -10,14 +10,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-router.route('/').get((req, res) => {
-  res.send('Hello from DALL-E!');
-});
+router.route('/').get((_, res) => res.send('Hello from DALL-E!'));
 
-router.route('/').post(async (req, res) => {
+router.route('/').post(async ({ body: { prompt } }, res) => {
   try {
-    const { prompt } = req.body;
-
     const aiResponse = await openai.images.generate({
       prompt: prompt,
       n: 1,
@@ -25,9 +21,7 @@ router.route('/').post(async (req, res) => {
       response_format: 'b64_json'
     });
 
-    const image = aiResponse.data[0].b64_json;
-
-    res.status(200).json({ photo: image });
+    res.status(200).json({ photo: aiResponse.data[0].b64_json });
   } catch (error) {
     console.log(error);
     res.status(500).send(error?.response.data.error.message || 'Something went wrong');

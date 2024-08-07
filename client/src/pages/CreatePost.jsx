@@ -19,15 +19,13 @@ const CreatePost = () => {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSurpriseMe = () => {
-    const randomPrompt = getRandomPrompt(form.prompt);
-    setForm({ ...form, prompt: randomPrompt });
-  };
+  const handleSurpriseMe = () => setForm({ ...form, prompt: getRandomPrompt(form.prompt) });
 
   const generateImage = async () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
+
         const response = await fetch('https://full-stack-mern-ai-image-generation-app.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
@@ -55,6 +53,7 @@ const CreatePost = () => {
 
     if (form.prompt && form.photo) {
       setLoading(true);
+
       try {
         const response = await fetch('https://full-stack-mern-ai-image-generation-app.onrender.com/api/v1/post', {
           method: 'POST',
